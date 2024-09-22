@@ -12,10 +12,20 @@ Login to the Azure cli with:
 az login
 ```
 
+```console
+az group create --n rg-streamlittest --location uksouth
+```
+
+
+
 Deploy with:
 
 ```console
 az deployment group create --resource-group <your-resource-group> --parameter infra/test.bicepparam 
 ```
 
-test
+To preview changes
+
+```console
+az deployment group what-if 
+```

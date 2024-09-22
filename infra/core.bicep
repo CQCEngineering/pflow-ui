@@ -1,12 +1,12 @@
-param location string
+param location string = 'uksouth'
 
-param suffix string
+param suffix string =  uniqueString('st-chat')
 
  @description('Branch of the repository for deployment.')
  param repositoryBranch string = 'main'
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
-  name: 'streamlit-app-service-plan'
+  name: 'streamlit-app-service-plan-${suffix}'
   location: location
   properties: {
     reserved: true
@@ -14,7 +14,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   sku: {
     name: 'B1'
   }
-  kind: 'app,linux'
+  kind: 'app'
 }
 
 resource appService 'Microsoft.Web/sites@2020-06-01' = {
@@ -37,15 +37,16 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
           value: 'endpoint'
         }
         {
-          name: 'SCM_DO_BUILD_DURING_DEPLOYMENT' // Build the application during deployment
-          value: 'true'
+          name: 'WEBSITES_CONTAINER_START_COMMAND' // Set the command to run at startup
+          value: 'python -m streamlit run src/Home.py --server.port 8000 --server.address 0.0.0.0' // Replace 'app.py' with your Streamlit app file
         }
         {
-          name: 'WEBSITE_NODE_DEFAULT_VERSION' // Set the default node version
-          value: '~20'
+          name: 'SCM_BASIC_AUTH_ENABLED' // Enable SCM basic authentication
+          value: 'true'
         }
       ]
       linuxFxVersion: 'PYTHON|3.12'
+      webSocketsEnabled: true
     }
   }
 }
@@ -54,7 +55,7 @@ resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
   parent: appService
   name: 'web'
   properties: {
-    repoUrl: 'https://github.com/FarzamMohammadi/hello-world'
+    repoUrl: 'https://github.com/Hsenrab/streamlit_chat.git'
     branch: repositoryBranch
     isManualIntegration: true
   }
