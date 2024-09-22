@@ -1,11 +1,11 @@
-import streamlit as st
 import os
+
+import streamlit as st
 from dotenv import load_dotenv
-import azure.cognitiveservices.speech as speechsdk
 
 load_dotenv()
 
-linked_connection = os.getenv("LINKED_API_FRIENDLY_NAME")
+linked_connection = "test" #os.getenv("LINKED_API_FRIENDLY_NAME")
 
 st.title("Chat with your data")
 st.subheader("Powered by " + linked_connection)
