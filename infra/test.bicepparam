@@ -1,0 +1,5 @@
+using 'core.bicep'
+
+param location = 'uksouth'
+
+param suffix = 'st-xxxx'
