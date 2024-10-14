@@ -37,16 +37,13 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
           value: 'endpoint'
         }
         {
-          name: 'WEBSITES_CONTAINER_START_COMMAND' // Set the command to run at startup
-          value: 'python -m streamlit run src/Home.py --server.port 8000 --server.address 0.0.0.0' // Replace 'app.py' with your Streamlit app file
-        }
-        {
           name: 'SCM_BASIC_AUTH_ENABLED' // Enable SCM basic authentication
           value: 'true'
         }
       ]
       linuxFxVersion: 'PYTHON|3.12'
       webSocketsEnabled: true
+      appCommandLine: 'python -m streamlit run src/Home.py --server.port 8000 --server.address 0.0.0.0'
     }
   }
 }

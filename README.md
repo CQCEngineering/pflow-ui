@@ -21,7 +21,7 @@ az group create --n rg-streamlittest --location uksouth
 Deploy with:
 
 ```console
-az deployment group create --resource-group <your-resource-group> --parameter infra/test.bicepparam 
+az deployment group create --resource-group rg-streamlittest --parameter infra/test.bicepparam 
 ```
 
 To preview changes
@@ -29,3 +29,10 @@ To preview changes
 ```console
 az deployment group what-if 
 ```
+
+
+### Connect to prompftflow
+
+1. Create a promptflow
+2. Deploy managed endpoint
+3. Add XXXXX to .env
