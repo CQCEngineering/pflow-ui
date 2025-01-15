@@ -1,6 +1,6 @@
-# streamlit_chat
+# Streamlit Prompt flow App
 
-Lightweight Streamlit Chat with data app to connect to api
+Lightweight Streamlit app to connect to a Prompt flow API
 
 ## To deploy
 
@@ -31,8 +31,12 @@ az deployment group what-if
 ```
 
 
-### Connect to prompftflow
-
-1. Create a promptflow
-2. Deploy managed endpoint
-3. Add XXXXX to .env
+### Connect to Prompt flow
+1. Create a promptflow.
+2. Deploy managed endpoint.
+3. Create a .env file and add the following:
+    - TITLE="" [optional]
+    - LOGO_URL="" [optional]
+    - PROMPTFLOW_ENDPOINT=""
+    - FEEDBACK_ENDPOINT=""
+    - PROMPTFLOW_KEY=""
