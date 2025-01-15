@@ -18,7 +18,7 @@ def process_with_promptflow(data, endpoint, api_key):
     headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
     req = urllib.request.Request(endpoint, body, headers)
-    print(req)
+
     with st.spinner("Waiting for response..."):
         try:
             response = urllib.request.urlopen(req)
@@ -36,21 +36,16 @@ def process_with_promptflow(data, endpoint, api_key):
 
 
 
-def feedback(feedback, api_key,feedback_endpoint ):
+def feedback(feedback, api_key, feedback_endpoint ):
     
     headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
     try:
         feedback_body = str.encode(json.dumps(feedback))
-        print(feedback_body)
         feedback_req = urllib.request.Request(feedback_endpoint, feedback_body, headers)
-        print(feedback_req)
         response = urllib.request.urlopen(feedback_req)
         result=response.read()
-        print(result)
 
     except urllib.error.HTTPError as error:
         print("The request failed with status code: " + str(error.code))
-
-       
         print(error.info())
         print(error.read().decode("utf8", 'ignore'))
