@@ -7,15 +7,16 @@ import pf
 
 load_dotenv()
 
-title = os.getenv("TITLE", "Contoso Housing")
-logo_image = os.getenv("LOGO_URL", "images/ContosoHousing")
+title = os.getenv("TITLE", "Promptflow Test App")
+logo_image = os.getenv("LOGO_URL", "images/msft_logo.png")
 promptflow_endpoint = os.getenv("PROMPTFLOW_ENDPOINT")
 promptflow_key = os.getenv("PROMPTFLOW_KEY")
 
 load_dotenv()
 
 
-st.title("RAG " + title)
+st.image(logo_image, width=50) 
+st.title(title)
 
 # Add a toggle to select the type of flow
 flow_type = st.radio(
