@@ -47,7 +47,9 @@ def feedback(feedback, api_key,feedback_endpoint ):
         print(feedback_body)
         feedback_req = urllib.request.Request(feedback_endpoint, feedback_body, headers)
         print(feedback_req)
-        urllib.request.urlopen(feedback_req)
+        response = urllib.request.urlopen(feedback_req)
+        result=response.read()
+        print(result)
 
     except urllib.error.HTTPError as error:
         print("The request failed with status code: " + str(error.code))
