@@ -6,7 +6,7 @@ import json
 
 load_dotenv()
 
-title = os.getenv("TITLE", "Contoso Chat Assistant")
+title = os.getenv("TITLE", "Contoso Entity Recognition")
 logo = os.getenv("LOGO_URL", "images/msft_logo.png")
 endpoint = os.getenv("PROMPTFLOW_ENDPOINT")
 api_key = os.getenv("PROMPTFLOW_KEY")
