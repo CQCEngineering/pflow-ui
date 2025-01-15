@@ -21,8 +21,6 @@ print(entity_type)
 prompt = st.text_input("Input Text")
 
 
-
-
 if st.button("Submit"):
     data = {
         "entity_type": entity_type,
@@ -40,72 +38,3 @@ if selected is not None:
     else:
         pf.feedback({"feedback": "thumbsup"}, api_key,feedback_endpoint)
 
-
-            
-#             result = pf.process_with_promptflow(data, promptflow_endpoint, promptflow_key)
-            
-#             # Display the result from the promptflow processing
-#             st.json(result)
-# response = f"Echo: {prompt}"
-#  Display assistant response in chat message container
-# with st.chat_message("assistant"):
-#     st.markdown(response)
-# Add assistant response to chat history
-# st.session_state.messages.append({"role": "assistant", "content": response})
-
-
-
-# Add a toggle to select the type of flow
-# flow_type = st.radio(
-#     "Select the type of flow:",
-#     ("Chat", "Document Processing")
-# )
-
-#if flow_type == "Chat":
-    # Initialize chat history
-
-    
-# Display chat messages from history on app rerun
-# for message in st.session_state.messages:
-#     with st.chat_message(message["role"]):
-#         st.markdown(message["content"])
-# # React to user input
-# if prompt := st.chat_input("Input Text"):
-#     # Display user message in chat message container
-#     with st.chat_message("User"):
-#         st.markdown(prompt)
-#     # Add user message to chat history
-#     st.session_state.messages.append({"role": "user", "content": prompt})  
-# response = f"Echo: {prompt}"
-# # Display assistant response in chat message container
-# with st.chat_message("assistant"):
-#     st.markdown(response)
-# # Add assistant response to chat history
-# st.session_state.messages.append({"role": "assistant", "content": response})
-
-
-# else:
-#     st.subheader("Document Processing")
-
-#     # Input box for pasting text
-#     document_text = st.text_area("Paste your document text here:")
-
-#     # Button to submit the text
-#     if st.button("Submit"):
-#         if document_text:
-#             st.write("Document submitted")
-#             # Process the document text here
-            
-#             data = {
-#                 "email": document_text
-#             }
-            
-#             result = pf.process_with_promptflow(data, promptflow_endpoint, promptflow_key)
-            
-#             # Display the result from the promptflow processing
-#             st.json(result)
-            
-#         else:
-#             st.write("Please paste some text before submitting.")
-            
-    
